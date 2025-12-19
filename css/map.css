@@ -1,0 +1,88 @@
+@media (min-width: 600px) {
+    #map {
+        width: 30%;
+        font-size: 30px;
+    }
+
+    #top,
+    #bottom {
+        width: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    #map {
+        font-size: 20px;
+    }
+
+}
+
+
+#map {
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    border: 1px black solid;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+    border: 1px black solid;
+    float: left;
+    text-align: center;
+    color: blue;
+}
+
+.both {
+    color: green;
+}
+
+.fog,
+.alien {
+    cursor: pointer;
+}
+
+.row {
+    clear: both;
+}
+
+.alien {}
+
+.fog {
+    background-color: grey;
+    color: blue;
+}
+
+.fog_conflict {
+    background-color: darkgray;
+}
+
+.ice {
+    border: 1px blue solid;
+    color: blue;
+}
+
+.context-menu {
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+}
+
+.context-menu__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.context-menu__item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.context-menu__item:hover {
+    background-color: #f0f0f0;
+}

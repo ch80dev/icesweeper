@@ -1,0 +1,3 @@
+BUG
+
+I thin kreveal is continually running indefinitely. 0,4

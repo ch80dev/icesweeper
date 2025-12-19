@@ -1,0 +1,32 @@
+#bottom{
+    clear: both;
+    width: 100%;
+    font-size: 50px;
+    text-align: center;
+}
+.help{
+    color: green;
+}
+.lost{
+    color: red;
+}
+
+#top{
+    text-align:center;
+    width: 100%;
+    font-size: 50px;
+}
+
+dialog {
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal__window {
+  position: relative;
+  background-color: white;
+  padding: 4em 2em;
+}
+
