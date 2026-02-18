@@ -6,7 +6,7 @@ $(document).on('click', '.cell', function (e) {
 });
 
 
-$(document).on('contextmenu', ".cell", function (e) {
+$(document).on('contextmenu', ".fog", function (e) {
     // Prevent the default browser context menu from appearing
     event.preventDefault();
     let x = Number(e.target.id.split('-')[1]);

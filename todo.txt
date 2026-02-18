@@ -1,3 +1,39 @@
-BUG
+Have a proper loss screen and restart.
 
-I thin kreveal is continually running indefinitely. 0,4
+Add sound.
+
+Be able to unmark the fog of war.
+
+Create a legitimate victory screen.
+
+How do I feel about being able to lose immediately?
+
+I'm winning by only revealing half of the board. I don't know if that's bad or good. And in some cases, I'm losing before even doing a flag.
+
+I need to mitigate losing on the first try.
+
+50% of the flags should be Mexican. The remaining 50% will be equally distributed equally between El Salvador, Guatemala, Honduras, Venezual, & Colombia.
+
+DONE
+
+I should only be able ot pull up the marking  menu for fog of war.
+
+Remaining what? 
+    Gente
+
+How do I market this? 
+
+    ICE Sweeper: Poder Al Pueblo
+    A community-action reinterpretation of Minesweeper focused on risk management, survival, and rescue rather than perfect completion.
+
+How do I explain this game?
+	Rescue 15 people (Gente) before your resolve runs out.
+	Rescued people restore resolve (Poder) and reduce the remaining count.
+	ICE agents damage your resolve, but the game continues. (As does the struggle.) Avoid unnecessary risks.
+	Right-click to mark what you think is hidden here.
+		Marking tiles helps you track deductions. It does not reveal them.
+	Numbers show the TOTAL threat value nearby — not the number of agents.
+	You don’t need to clear the board — rescue enough to win.
+	
+Is this game too derivative to Dungeon Sweeper?
+    No.
