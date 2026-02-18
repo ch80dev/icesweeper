@@ -193,40 +193,17 @@ class GameMap {
     }
 
     reveal(x, y) {
+        // open the clicked spot plus all connected open spots
         let all_open_spots = this.fetch_all_open_spots(x, y);
         for (let spot of all_open_spots) {
             this.fog[spot.x][spot.y] = false;
         }
-        let start_x = x;
-        let start_y = y;
-        let pos_x = x;
-        let pos_y = y;
-        while (1) {
-            let center_x = Math.floor(Config.max_x / 2);
-            let center_y = Math.floor(Config.max_y / 2);
-            let delta_x = center_x - x;
-            let delta_y = center_y - y;
-            if (delta_x > 0) {
-                delta_x = 1;
-            } else if (delta_x < 0) {
-                delta_x = -1;
-            }
-            if (delta_y > 0) {
-                delta_y = 1;
-            } else if (delta_y < 0) {
-                delta_y = -1;
-            }
-            pos_x += delta_x;
-            pos_y += delta_y;
 
-            if (!this.is_valid(pos_x, pos_y)) {
-                break;
-            }
-            if (this.at(pos_x, pos_y) != null) {
-                break;
-            }
-        }
-        //console.log(pos_x, pos_y);
-
+        // the following logic previously attempted to walk from the
+        // revealed cell toward the center of the map, but it never
+        // modified the game state and, when the starting cell was
+        // exactly at the center, the deltas computed below were 0
+        // which caused an infinite loop.  the loop served no purpose
+        // in normal gameplay so it has been removed to avoid hangs.
     }
 }

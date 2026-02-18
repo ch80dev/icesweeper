@@ -10,7 +10,8 @@ class Game {
 
 	reveal_off = false;
 	constructor() {
-		setInterval(this.loop.go(), Config.loop_interval_timing);
+		// pass a function reference to setInterval instead of invoking immediately
+		setInterval(() => this.loop.go(), Config.loop_interval_timing);
 	}
 	chinga_la_migra(x, y) {
 		if (this.map.at(x, y) > 0) {

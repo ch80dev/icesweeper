@@ -17,7 +17,7 @@ class UI {
 	}
 
 	create_context_menu(x, y) {
-		let txt = `<li class="context-menu__item" onclick="juego.input.plant_flag_from_menu(${x}, ${y}, null"></li>`;
+		let txt = `<li class="context-menu__item" onclick="juego.input.plant_flag_from_menu(${x}, ${y}, null)"></li>`;
 		for (let i in Config.flags) {
 			let flag = Config.flags[i];
 			txt += `<li class="context-menu__item" onclick="juego.input.plant_flag_from_menu(${x}, ${y}, ${i})">${flag}</li>`;
