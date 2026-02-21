@@ -1,7 +1,7 @@
 class Config {
 	static alien_power = 15;
 	static default_fog = true;
-	static flags = ['🐖', '1', '2', '3', '4',];
+	static flags = [' ', '1', '2', '3', '4',];
 	static ice_power = 60;
 
 	static loop_interval_timing = 1000;
@@ -9,5 +9,5 @@ class Config {
 	static max_y = 10;
 
 	static num_of_ice = 45;
-	static num_of_aliens = 15;
+	static num_of_aliens = 20;
 }

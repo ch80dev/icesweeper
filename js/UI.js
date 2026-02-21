@@ -36,12 +36,10 @@ class UI {
 				let num_of_adjacent_aliens = juego.map.fetch_num_of_adjacent(x, y, true);
 				let num_of_adjacent_ice = juego.map.fetch_power_of_adjacent(x, y, false);
 				if (fog_here || juego.reveal_off) {
-					cell_class = ' fog ';
-				} else if (fog_here && num_of_adjacent_aliens > 0) {
-					//cell_class = ' fog_conflict ';
+					cell_class = ' fog '
 				} else if (juego.map.at(x, y) < 0) {
 					cell_class = " ice ";
-
+					cell_txt = "🐖";
 				} else if (juego.map.at(x, y) > 0) {
 					cell_class = " alien ";
 				}
@@ -49,7 +47,7 @@ class UI {
 					cell_txt = juego.map.flag[x][y];
 				} else if (!fog_here && juego.map.at(x, y) > 0) {
 					cell_txt = "🇲🇽";
-				} else if ((!fog_here && num_of_adjacent_ice > 0)) {
+				} else if ((!fog_here && num_of_adjacent_ice > 0) && juego.map.at(x, y) >= 0) {
 					cell_txt = num_of_adjacent_ice;
 				} else if ((!fog_here && num_of_adjacent_ice > 0 && num_of_adjacent_aliens > 0)) {
 					//cell_txt = num_of_adjacent_ice - num_of_adjacent_aliens;

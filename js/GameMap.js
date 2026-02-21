@@ -168,16 +168,27 @@ class GameMap {
     }
 
     generate() {
+        let aliens_generated = 0;
+        while(aliens_generated < Config.num_of_aliens){
+
+            let rand = rand_num(1, Math.floor(Config.alien_power / Config.num_of_aliens));//is this too low?            
+            let spot = this.fetch_rand_open_spot();
+            let num_of_adjacent = this.fetch_num_of_adjacent(spot.x, spot.y, true);
+
+            if (num_of_adjacent == 0){
+                this.is(spot.x, spot.y, rand);
+                aliens_generated++;
+            }
+        }
+        for (let i = 0; i < Config.num_of_aliens; i++) {
+            
+        }
         for (let i = 0; i < Config.num_of_ice; i++) {
             let rand = rand_num(1, Math.floor(Config.ice_power / Config.num_of_ice * 2.5));
             let spot = this.fetch_rand_open_spot();
             this.is(spot.x, spot.y, -rand);
         }
-        for (let i = 0; i < Config.num_of_aliens; i++) {
-            let rand = rand_num(1, Math.floor(Config.alien_power / Config.num_of_aliens));//is this too low?
-            let spot = this.fetch_rand_open_spot();
-            this.is(spot.x, spot.y, rand);
-        }
+        
     }
 
     is_fog_here(x, y) {

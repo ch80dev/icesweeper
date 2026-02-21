@@ -14,6 +14,14 @@ I need to mitigate losing on the first try.
 
 50% of the flags should be Mexican. The remaining 50% will be equally distributed equally between El Salvador, Guatemala, Honduras, Venezual, & Colombia.
 
+Don't have aliens spawn immediately next to each other.
+
+I was thinking of changing the mechanics to where maybe the pigs only strike when you reveal an alien to make it a little bit more obvious. 
+
+I was also thinking of a mechanic where you can get points from striking back at ICE with ice cubes. 
+
+Also, a mechanic where you can get more functionality. Like maybe confirming your flags on the board. Things like to give you an advantage. ( I was thinking maybe on the board, there's one spot that gives you this extra functionality. Or maytbe it only appears if you do a false mark. [marking an alien as a pig])
+
 DONE
 
 I should only be able ot pull up the marking  menu for fog of war.
