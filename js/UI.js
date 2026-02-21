@@ -2,6 +2,28 @@ class UI {
 	constructor() {
 
 	}
+	flash(compa_delta){
+		$("#compa_delta").removeClass('hidden');
+		
+		if (compa_delta > 0) {
+			$("#compa_delta").html("-" + compa_delta);
+			$("#compa_delta").removeClass("help");
+			$("#compa_delta").addClass("lost");
+		} else if (compa_delta < 0) {
+			$("#compa_delta").html("+" + Math.abs(compa_delta));
+			$("#compa_delta").removeClass("lost");
+			$("#compa_delta").addClass("help");
+		}
+		
+		setTimeout(function(){
+			$("#compa_delta").addClass('hidden');
+		}, Config.flash_time);
+	}
+
+	lose(){
+		$("#game").addClass('hidden');
+		$("#defeat").removeClass('hidden');
+	}
 
 	show_context_menu(screen_x, screen_y, cell_x, cell_y) {
 		this.create_context_menu(cell_x, cell_y);
@@ -69,13 +91,18 @@ class UI {
 
 	refresh() {
 		$("#compas").html(juego.compas);
-		if (juego.compas_lost > 0) {
-			$("#compas").html(juego.compas + ` (<span class='lost'>-${juego.compas_lost}</span>)`);
-		} else if (juego.compas_lost < 0) {
-			$("#compas").html(juego.compas + ` (<span class='help'>+${Math.abs(juego.compas_lost)}</span>)`);
+		if (juego.compas_lost != 0){
+			this.flash(juego.compas_lost);		
 		}
+		
+		juego.compas_lost = 0;
 		$("#compas_remaining").html(Config.num_of_aliens - juego.aliens_found);
 
 		this.display_map();
+	}	
+
+	restart(){
+		$("#game").removeClass('hidden');
+		$("#defeat").addClass('hidden');
 	}
 }

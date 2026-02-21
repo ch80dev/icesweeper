@@ -12,6 +12,7 @@ class Game {
 	constructor() {
 		// pass a function reference to setInterval instead of invoking immediately
 		setInterval(() => this.loop.go(), Config.loop_interval_timing);
+		
 	}
 	chinga_la_migra(x, y) {
 		if (this.map.at(x, y) > 0) {
@@ -21,9 +22,7 @@ class Game {
 		juego.compas_lost = Math.abs(this.map.at(x, y));
 		this.compas += this.map.at(x, y);
 		this.map.is(x, y, null);
-		if (this.compas < 0) {
-			window.alert("CHINGA LA MIGRA");
-		}
+		ui.lose();
 	}
 
 	help(x, y) {
@@ -47,5 +46,13 @@ class Game {
 			return;
 		}
 		this.map.flag[x][y] = Config.flags[id];
+	}
+
+	restart(){
+		this.map.restart(Config.max_x, Config.max_y);
+		this.aliens_found = 0;
+		this.compas = 0;
+		this.compas_lost = 0;
+		ui.restart();
 	}
 }

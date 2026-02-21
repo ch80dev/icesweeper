@@ -4,21 +4,7 @@ class GameMap {
     grid = [];
 
     constructor(max_x, max_y) {
-        this.max_x = max_x;
-        this.max_y = max_y;
-        for (let x = 0; x < max_x; x++) {
-            this.fog[x] = [];
-            this.grid[x] = [];
-            this.flag[x] = [];
-            for (let y = 0; y < max_y; y++) {
-                this.flag[x][y] = false;
-                this.fog[x][y] = Config.default_fog;
-                this.grid[x][y] = null;
-
-            }
-        }
-        this.generate();
-        this.create_start();
+        this.restart(max_x, max_y);
     }
 
     at(x, y) {
@@ -201,6 +187,24 @@ class GameMap {
 
     is_valid(x, y) {
         return x >= 0 && x < Config.max_x && y >= 0 && y < Config.max_y;
+    }
+
+    restart(max_x, max_y){
+        this.max_x = max_x;
+        this.max_y = max_y;
+        for (let x = 0; x < max_x; x++) {
+            this.fog[x] = [];
+            this.grid[x] = [];
+            this.flag[x] = [];
+            for (let y = 0; y < max_y; y++) {
+                this.flag[x][y] = false;
+                this.fog[x][y] = Config.default_fog;
+                this.grid[x][y] = null;
+
+            }
+        }
+        this.generate();
+        this.create_start();
     }
 
     reveal(x, y) {

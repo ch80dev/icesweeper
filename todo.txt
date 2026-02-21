@@ -6,10 +6,10 @@ Add sound.
 Create a legitimate victory screen.
 
 How do I feel about being able to lose immediately?
+	I need to mitigate losing on the first try.
 
 I'm winning by only revealing half of the board. I don't know if that's bad or good. And in some cases, I'm losing before even doing a flag.
 
-I need to mitigate losing on the first try.
 
 50% of the flags should be Mexican. The remaining 50% will be equally distributed equally between El Salvador, Guatemala, Honduras, Venezual, & Colombia.
 

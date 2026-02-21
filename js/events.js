@@ -5,6 +5,10 @@ $(document).on('click', '.cell', function (e) {
     ui.refresh();
 });
 
+$(document).on('click', '#restart', function (e) {
+    juego.restart();
+    ui.refresh();
+});
 
 $(document).on('contextmenu', ".fog", function (e) {
     // Prevent the default browser context menu from appearing

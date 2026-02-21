@@ -3,9 +3,18 @@
     width: 100%;
     font-size: 50px;
     text-align: center;
+     font-family: "Baloo 2", system-ui, sans-serif;
 }
+#compa_delta {
+    margin-left: 10px;
+}
+
+
 .help{
     color: green;
+}
+.hidden{
+    display: none;
 }
 .lost{
     color: red;
@@ -15,6 +24,7 @@
     text-align:center;
     width: 100%;
     font-size: 50px;
+     font-family: "Baloo 2", system-ui, sans-serif;
 }
 
 dialog {
@@ -30,3 +40,101 @@ dialog {
   padding: 4em 2em;
 }
 
+
+/* =========================
+   DEFEAT SCREEN CONTAINER
+   ========================= */
+#defeat.hidden{
+    display: none;
+}
+#defeat {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* warm Mexico-sunset gradient */
+    background: linear-gradient(
+        180deg,
+        #e8d9b5 0%,
+        #f3c86a 45%,
+        #e59a57 100%
+    );
+
+    font-family: "Baloo 2", system-ui, sans-serif;
+    text-align: center;
+
+    /* prevents clipping */
+    padding: 120px 40px 120px;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+
+/* =========================
+   TITLE (CHINGA LA MIGRA)
+   ========================= */
+
+#defeat > div:first-child {
+    font-size: clamp(70px, 10vw, 140px);
+    font-weight: 900;
+
+    color: #d71920;
+
+    /* bold black outline */
+
+    /* arcade drop shadow */
+
+
+    margin-bottom: 70px;
+
+    /* prevents outline from being clipped */
+    padding: 20px 10px;
+}
+
+
+/* =========================
+   RESTART BUTTON
+   ========================= */
+
+#restart {
+    font-family: "Baloo 2", system-ui, sans-serif;
+    font-size: clamp(36px, 4vw, 60px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    padding: 22px 80px;
+
+    color: #e9f3f1;
+    background: #2f9a8f;
+
+    border: none;
+    border-radius: 26px;
+
+    cursor: pointer;
+
+    /* chunky arcade depth */
+    box-shadow:
+        0 10px 0 #1f6e66,
+        0 18px 28px rgba(0,0,0,0.35);
+
+    transition: transform 0.12s ease,
+                box-shadow 0.12s ease,
+                background 0.15s ease;
+}
+
+
+/* button press effect */
+#restart:hover {
+    background: #34a99d;
+}
+
+#restart:active {
+    transform: translateY(8px);
+    box-shadow:
+        0 3px 0 #1f6e66,
+        0 8px 14px rgba(0,0,0,0.3);
+}
