@@ -1,6 +1,4 @@
-Have a proper loss screen and restart.
 
-Add sound.
 
 
 Create a legitimate victory screen.
@@ -21,6 +19,8 @@ I was also thinking of a mechanic where you can get points from striking back at
 Also, a mechanic where you can get more functionality. Like maybe confirming your flags on the board. Things like to give you an advantage. ( I was thinking maybe on the board, there's one spot that gives you this extra functionality. Or maytbe it only appears if you do a false mark. [marking an alien as a pig])
 
 DONE
+Add sound.
+
 
 Be able to unmark the fog of war.
 

@@ -7,11 +7,25 @@ class Game {
 	loop = new Loop();
 	map = new GameMap(Config.max_x, Config.max_y);
 	player = new Player();
+	sounds  = 
+	{
+		alien: [],
+		defeat: new Audio("audio/defeat.mp3"),
+		ice: new Audio("audio/click.wav"),
+		reveal: [],
+		victory: new Audio("audio/victory.mp3"),
+	
+	}
 
 	reveal_off = false;
 	constructor() {
 		// pass a function reference to setInterval instead of invoking immediately
 		setInterval(() => this.loop.go(), Config.loop_interval_timing);
+		for (let i = 0; i <= 4; i ++){
+			this.sounds.alien[i] = new Audio(`audio/alien-${i}.mp3`);
+			this.sounds.reveal[i] = new Audio(`audio/reveal-${i}.mp3`);
+		}
+
 		
 	}
 	chinga_la_migra(x, y) {
@@ -22,6 +36,7 @@ class Game {
 		juego.compas_lost = Math.abs(this.map.at(x, y));
 		this.compas += this.map.at(x, y);
 		this.map.is(x, y, null);
+		this.sounds.defeat.play();
 		ui.lose();
 	}
 
