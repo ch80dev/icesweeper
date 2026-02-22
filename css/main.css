@@ -138,3 +138,98 @@ dialog {
         0 3px 0 #1f6e66,
         0 8px 14px rgba(0,0,0,0.3);
 }
+
+/* =========================
+   VICTORY SCREEN CONTAINER
+   ========================= */
+
+#victory.hidden {
+    display: none;
+}
+
+#victory {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* darker grounded green — no glow */
+    background: linear-gradient(
+        180deg,
+        #a9caa4 0%,
+        #5fa66a 45%,
+        #2e6b45 100%
+    );
+
+    font-family: "Baloo 2", system-ui, sans-serif;
+    text-align: center;
+
+    padding: 120px 40px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   TITLE
+   ========================= */
+
+#victory > div:first-child {
+    font-size: clamp(70px, 10vw, 140px);
+    font-weight: 900;
+
+    color: #f1f1f1;
+
+    /* same physical weight as defeat title */
+    text-shadow:
+        0 6px 0 #1f4d32,
+        0 14px 26px rgba(0,0,0,0.35);
+
+    margin-bottom: 70px;
+    padding: 20px 10px;
+}
+
+/* =========================
+   NEXT BUTTON
+   ========================= */
+
+#next {
+    font-family: "Baloo 2", system-ui, sans-serif;
+    font-size: clamp(36px, 4vw, 60px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    padding: 22px 80px;
+
+    color: #ffffff;
+
+    /* Mexican flag red */
+    background: #ce2b37;
+
+    border: none;
+    border-radius: 26px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 0 #9e1f29,
+        0 18px 28px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.15s ease;
+}
+
+#next:hover {
+    background: #e03340;
+}
+
+#next:active {
+    transform: translateY(8px);
+    box-shadow:
+        0 3px 0 #9e1f29,
+        0 8px 14px rgba(0,0,0,0.3);
+}

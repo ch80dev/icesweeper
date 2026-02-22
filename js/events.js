@@ -5,8 +5,13 @@ $(document).on('click', '.cell', function (e) {
     ui.refresh();
 });
 
+$(document).on('click', '#next', function (e) {
+    juego.restart(false);
+    ui.refresh();
+});
+
 $(document).on('click', '#restart', function (e) {
-    juego.restart();
+    juego.restart(true);
     ui.refresh();
 });
 

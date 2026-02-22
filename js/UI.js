@@ -97,12 +97,18 @@ class UI {
 		
 		juego.compas_lost = 0;
 		$("#compas_remaining").html(Config.num_of_aliens - juego.aliens_found);
-
+		if (juego.wins > 0){
+			$("#wins").html("Wins: " + juego.wins);
+		}
 		this.display_map();
 	}	
 
 	restart(){
 		$("#game").removeClass('hidden');
-		$("#defeat").addClass('hidden');
+		$(".screen").addClass('hidden');
+	}
+	win(){
+		$("#game").addClass('hidden');
+		$("#victory").removeClass('hidden');
 	}
 }

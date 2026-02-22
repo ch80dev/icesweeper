@@ -9,6 +9,6 @@ class Config {
 	static max_x = 10;
 	static max_y = 10;
 
-	static num_of_ice = 45;
-	static num_of_aliens = 20;
+	static num_of_ice = 45; //50 is difficult, 45 is consistently beatable for me. This means that is probably difficult for regular
+	static num_of_aliens = 10;
 }
