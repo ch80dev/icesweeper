@@ -2,6 +2,7 @@ class Config {
 	static alien_power = 15;
 	static default_fog = true;
 	static flags = [' ', '1', '2', '3', '4',];
+	static gente_flags = ["🇲🇽", "🇸🇻", "🇬🇹", "🇭🇳", "🇻🇪", "🇨🇴"];
 	static flash_time = 500;
 	static ice_power = 60;
 

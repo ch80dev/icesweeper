@@ -1,4 +1,3 @@
-Create a legitimate victory screen.
 
 How do I feel about being able to lose immediately?
 	I need to mitigate losing on the first try. <-!!!
@@ -6,7 +5,7 @@ How do I feel about being able to lose immediately?
 I'm winning by only revealing half of the board. I don't know if that's bad or good. And in some cases, I'm losing before even doing a flag.
 
 
-50% of the flags should be Mexican. The remaining 50% will be equally distributed equally between El Salvador, Guatemala, Honduras, Venezual, & Colombia.
+
 
 
 I was thinking of changing the mechanics to where maybe the pigs only strike when you reveal an alien to make it a little bit more obvious. 
@@ -25,6 +24,11 @@ Show where the aliens are when you lose.
 create an ability to confirm flags
 
 DONE
+
+50% of the flags should be Mexican. The remaining 50% will be equally distributed equally between El Salvador, Guatemala, Honduras, Venezual, & Colombia.
+
+Create a legitimate victory screen.
+
 Add sound.
 
 

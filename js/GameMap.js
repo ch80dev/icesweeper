@@ -1,5 +1,6 @@
 class GameMap {
     flag = [];
+    gente_flags = [];
     fog = [];
     grid = [];
 
@@ -159,10 +160,14 @@ class GameMap {
             let power = 1;
             let spot = this.fetch_rand_open_spot();
             let num_of_adjacent = this.fetch_num_of_adjacent(spot.x, spot.y, true);
-
+            let are_they_mexican = rand_num(1, 2) == 1;
+            let gente_flag = Config.gente_flags[0];
+            if (!are_they_mexican){
+                gente_flag = Config.gente_flags[rand_num(1, 5)];
+            }
             if (num_of_adjacent == 0){
-                console.log(spot);
                 this.is(spot.x, spot.y, power);
+                this.gente_flags[spot.x][spot.y] = gente_flag;
                 aliens_generated++;
                 
             }
@@ -198,9 +203,11 @@ class GameMap {
             this.fog[x] = [];
             this.grid[x] = [];
             this.flag[x] = [];
+            this.gente_flags[x] = [];
             for (let y = 0; y < max_y; y++) {
                 this.flag[x][y] = false;
                 this.fog[x][y] = Config.default_fog;
+                this.gente_flags[x][y] = null;
                 this.grid[x][y] = null;
 
             }

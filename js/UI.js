@@ -69,7 +69,7 @@ class UI {
 				if (juego.map.fog[x][y] && juego.map.flag[x][y]) {
 					number = juego.map.flag[x][y];
 				} else if (!fog_here && juego.map.at(x, y) > 0) {
-					icon = "🇲🇽";
+					icon = juego.map.gente_flags[x][y];
 					number = juego.map.at(x, y);
 				} else if ((!fog_here && num_of_adjacent_ice > 0) && juego.map.at(x, y) >= 0) {
 					number = num_of_adjacent_ice;
