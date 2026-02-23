@@ -15,11 +15,13 @@ tutorial
 
 CANCEL - change the text color of .pressed so that it's more obvious that it's not a fog. Or change bg color
 
-change fog flag text color to something that's not cell text color
 
 Started where there was no easy in. (Should have taken a picture. Maybe always start with flags.)
 
 DONE
+
+change fog flag text color to something that's not cell text color
+
 double the flash time for compa_delta
 
 

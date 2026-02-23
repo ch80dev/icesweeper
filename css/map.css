@@ -107,6 +107,16 @@
 .cell:not(.ice):not(.gente)::after {
     color: blue;
 }
+.fog[data-num]:not([data-num=""])::after {
+    /* flagged fog markers stand out from unrevealed cells */
+    color: blue;
+    
+    background: rgba(255,255,255,0.75);
+    border-radius: 6px;
+    padding: 1px 4px;
+
+    text-shadow: none;
+}
 .cell::after {
     content: attr(data-num);
     position: absolute;
@@ -122,8 +132,8 @@
 
     /* readability boost */
     text-shadow:
-        0 0 2px white,
-        0 0 4px white;
+       0 1px 0 rgba(255,255,255,0.6),
+        0 -1px 0 rgba(0,0,0,0.25);
 }
 
 .both {
@@ -184,11 +194,8 @@
 }
 
 .pressed{
-    background: linear-gradient(
-        145deg,
-        #b7c3a2,
-        #98a884
-    );
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.35);
+    filter: brightness(0.95);
 }
 
 .wrong{
