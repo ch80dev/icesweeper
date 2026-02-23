@@ -12,6 +12,21 @@ class GameMap {
         return this.grid[x][y];
     }
 
+    confirm(){
+        for (let x = 0; x < Config.max_x; x ++){
+            for (let y = 0; y < Config.max_y; y ++){
+                if (this.flag[x][y] == false){
+                    continue;
+                }
+                console.log(x, y, this.flag[x][y], this.at(x, y));
+                if (this.flag[x][y] != this.at(x, y)){
+                    this.flag[x][y] = -1;
+                }
+                console.log(this.flag[x][y]);
+            }
+        }
+    }
+
     create_start() {
         let max_open_spaces = 0;
         let border = null;

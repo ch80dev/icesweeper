@@ -8,6 +8,12 @@ $(document).on('click', '.cell', function (e) {
     ui.refresh();
 });
 
+$(document).on('click', '#confirm', function (e) {
+    juego.map.confirm();
+    ui.refresh();
+});
+
+
 $(document).on('click', '#next', function (e) {
     juego.restart(false);
     ui.refresh();

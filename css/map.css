@@ -190,3 +190,11 @@
         #98a884
     );
 }
+
+.wrong{
+    background: linear-gradient(
+        145deg,
+        #b07a7a,
+        #8f5c5c
+    );
+}

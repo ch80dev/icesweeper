@@ -58,8 +58,12 @@ class UI {
 				let num_of_adjacent_gente = juego.map.fetch_num_of_adjacent(x, y, true);
 				let num_of_adjacent_ice = juego.map.fetch_power_of_adjacent(x, y, false);
 				let number = "";
-				if (fog_here && !juego.reveal) {
-					cell_class = ' fog '
+				
+					
+				if (fog_here && !juego.reveal && juego.map.flag[x][y] == -1) {
+					cell_class = ' wrong ';
+				} else if (fog_here && !juego.reveal) {
+					cell_class = ' fog ';
 				} else if (juego.map.at(x, y) < 0) {
 					cell_class = " ice ";
 					icon = "🐖";
@@ -67,7 +71,7 @@ class UI {
 					cell_class = " gente ";
 				}
 
-				if (juego.map.fog[x][y] && juego.map.flag[x][y]) {
+				if (juego.map.fog[x][y] && juego.map.flag[x][y] != false && juego.map.flag[x][y] >= 0) {
 					number = juego.map.flag[x][y];
 				} else if ((!fog_here || fog_here && juego.reveal) && juego.map.at(x, y) > 0) {
 					icon = juego.map.gente_flags[x][y];
