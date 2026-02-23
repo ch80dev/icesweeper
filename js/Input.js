@@ -15,7 +15,13 @@ class Input {
         }
 
         if (juego.map.at(x, y) > 0) {
-            juego.sounds.gente[rand_num(1, 4)].play();
+            for (let i = 1; i <= 2; i ++){
+                if(juego.sounds.gente[i]){
+                    juego.sounds.gente[i].pause();
+                    juego.sounds.gente[i].currentTime = 0;
+                }
+            }
+            juego.sounds.gente[rand_num(1, 2)].play();
             juego.help(x, y);
             return;
         }

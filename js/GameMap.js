@@ -19,10 +19,9 @@ class GameMap {
                     continue;
                 }
                 console.log(x, y, this.flag[x][y], this.at(x, y));
-                if (this.flag[x][y] != this.at(x, y)){
+                if (Number(this.flag[x][y]) != Math.abs(this.at(x, y))){
                     this.flag[x][y] = -1;
                 }
-                console.log(this.flag[x][y]);
             }
         }
     }

@@ -24,8 +24,14 @@ class Game {
 	constructor() {
 		setInterval(() => this.loop.go(), Config.loop_interval_timing);
 		for (let i = 1; i <= 4; i ++){
-			this.sounds.gente[i] = new Audio(`audio/alien-${i}.mp3`);
+			
 			this.sounds.reveal[i] = new Audio(`audio/reveal-${i}.mp3`);
+
+			if (i > 2){
+				continue;
+			}
+			this.sounds.gente[i] = new Audio(`audio/alien-${i}.mp3`);
+			this.sounds.gente[i].volume = .1;
 		}		
 	}
 	chinga_la_migra(x, y) {

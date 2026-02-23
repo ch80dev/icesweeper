@@ -17,7 +17,6 @@ I was also thinking of a mechanic where you can get points from striking back at
 Also, a mechanic where you can get more functionality. Like maybe confirming your flags on the board. Things like to give you an advantage. ( I was thinking maybe on the board, there's one spot that gives you this extra functionality. Or maytbe it only appears if you do a false mark. [marking an gente as a pig])
 
 
-gente sound doesn't really work.
 
 
 
@@ -26,9 +25,17 @@ create an ability to confirm flags
 
 tutorial
 
+double the flash time for compa_delta
 
+CANCEL - change the text color of .pressed so that it's more obvious that it's not a fog. Or change bg color
+
+change fog flag text color to something that's not cell text color
+
+Started where there was no easy in. (Should have taken a picture. Maybe always start with flags.)
 
 DONE
+gente sound doesn't really work.
+
 
 Show where the gente are when you lose.
 
