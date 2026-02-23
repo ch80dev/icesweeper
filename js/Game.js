@@ -3,11 +3,12 @@ class Game {
 	compas = 0;
 	compas_lost = 0;
 	flagging = false;
+	fog_visible = null;
 	input = new Input();
 	loop = new Loop();
 	map = new GameMap(Config.max_x, Config.max_y);
 	player = new Player();
-	reveal_off = false;
+	reveal = false;
 	sounds  = 
 	{
 		gente: [],
@@ -20,24 +21,21 @@ class Game {
 	wins = 0;
 	
 	constructor() {
-		// pass a function reference to setInterval instead of invoking immediately
 		setInterval(() => this.loop.go(), Config.loop_interval_timing);
 		for (let i = 1; i <= 4; i ++){
-			this.sounds.gente[i] = new Audio(`audio/gente-${i}.mp3`);
+			this.sounds.gente[i] = new Audio(`audio/alien-${i}.mp3`);
 			this.sounds.reveal[i] = new Audio(`audio/reveal-${i}.mp3`);
-		}
-
-		
+		}		
 	}
 	chinga_la_migra(x, y) {
 		if (this.map.at(x, y) > 0) {
 			return;
 		}
-
 		this.compas_lost = Math.abs(this.map.at(x, y));
 		this.compas += this.map.at(x, y);
 		this.map.is(x, y, null);
 		if (this.compas  < 0){
+			this.reveal = true;
 			this.sounds.defeat.play();
 			ui.lose();
 		}
@@ -75,6 +73,11 @@ class Game {
 		this.compas = 0;
 		this.compas_lost = 0;
 		this.wins = 0;
+		if(player_loses){
+			this.reveal = false;
+		}
 		ui.restart();
+
+		
 	}
 }

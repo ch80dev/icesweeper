@@ -21,8 +21,9 @@ class UI {
 	}
 
 	lose(){
-		$("#game").addClass('hidden');
-		$("#defeat").removeClass('hidden');
+		//$("#game").addClass('hidden');
+		// first phase: text fades in over the game
+		$("#defeat").addClass('show-text');
 	}
 
 	show_context_menu(screen_x, screen_y, cell_x, cell_y) {
@@ -50,7 +51,6 @@ class UI {
 	display_map() {
 		let txt = "";
 		for (let y = 0; y < Config.max_y; y++) {
-			//txt += "<div class='row'>"
 			for (let x = 0; x < Config.max_x; x++) {
 				let cell_class = "";
 				let icon = "";
@@ -58,7 +58,7 @@ class UI {
 				let num_of_adjacent_gente = juego.map.fetch_num_of_adjacent(x, y, true);
 				let num_of_adjacent_ice = juego.map.fetch_power_of_adjacent(x, y, false);
 				let number = "";
-				if (fog_here || juego.reveal_off) {
+				if (fog_here && !juego.reveal) {
 					cell_class = ' fog '
 				} else if (juego.map.at(x, y) < 0) {
 					cell_class = " ice ";
@@ -66,25 +66,20 @@ class UI {
 				} else if (juego.map.at(x, y) > 0) {
 					cell_class = " gente ";
 				}
+
 				if (juego.map.fog[x][y] && juego.map.flag[x][y]) {
 					number = juego.map.flag[x][y];
-				} else if (!fog_here && juego.map.at(x, y) > 0) {
+				} else if ((!fog_here || fog_here && juego.reveal) && juego.map.at(x, y) > 0) {
 					icon = juego.map.gente_flags[x][y];
 					number = juego.map.at(x, y);
 				} else if ((!fog_here && num_of_adjacent_ice > 0) && juego.map.at(x, y) >= 0) {
 					number = num_of_adjacent_ice;
-				} else if ((!fog_here && num_of_adjacent_ice > 0 && num_of_adjacent_gente > 0)) {
-					//cell_txt = num_of_adjacent_ice - num_of_adjacent_gente;
-					//cell_class = ' both ';
+
 				}
-
-
 				txt += `<div id='cell-${x}-${y}' class='cell ${cell_class}' data-icon='${icon}' data-num='${number}'>
 				
 					</div>`
-
 			}
-			//txt += "</div>"
 		}
 		document.getElementById('map').innerHTML = txt;
 	}
@@ -93,8 +88,7 @@ class UI {
 		$("#compas").html(juego.compas);
 		if (juego.compas_lost != 0){
 			this.flash(juego.compas_lost);		
-		}
-		
+		}		
 		juego.compas_lost = 0;
 		$("#compas_remaining").html(Config.num_of_gente - juego.gente_found);
 		if (juego.wins > 0){
@@ -105,10 +99,10 @@ class UI {
 
 	restart(){
 		$("#game").removeClass('hidden');
-		$(".screen").addClass('hidden');
+		$(".screen").removeClass('fade-screen show-text visible');
 	}
 	win(){
 		$("#game").addClass('hidden');
-		$("#victory").removeClass('hidden');
+		$("#victory").addClass('visible');
 	}
 }

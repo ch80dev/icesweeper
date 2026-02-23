@@ -1,6 +1,9 @@
 $(document).on('click', '.cell', function (e) {
     let x = Number(e.target.id.split('-')[1]);
     let y = Number(e.target.id.split('-')[2]);
+    if (juego.reveal){
+        return;
+    }
     juego.input.click(x, y);
     ui.refresh();
 });
@@ -11,8 +14,21 @@ $(document).on('click', '#next', function (e) {
 });
 
 $(document).on('click', '#restart', function (e) {
+    $("#defeat").removeClass('show-text fade-screen');
     juego.restart(true);
     ui.refresh();
+});
+
+// defeat overlay is two-step: first shows text, second fades in full screen
+$(document).on('click', '#defeat', function (e) {
+    const $screen = $(this);
+
+    // first click after lose: bring in the background overlay
+    if ($screen.hasClass('show-text') && !$screen.hasClass('fade-screen')) {
+        $screen.addClass('fade-screen');
+        e.stopPropagation();
+        return;
+    }
 });
 
 $(document).on('contextmenu', ".fog", function (e) {
@@ -22,19 +38,16 @@ $(document).on('contextmenu', ".fog", function (e) {
     let y = Number(e.target.id.split('-')[2]);
     let screen_x = e.pageX;
     let screen_y = e.pageY;
+    if (juego.reveal){
+        return;
+    }
     ui.show_context_menu(screen_x, screen_y, x, y);
 
 
 
 });
 
-$(document).on('keydown', function (e) {
-    // Modern way: check the key
-    if (e.key === " " || e.key === "Spacebar") {
-        juego.input.spacebar();
-    }
-    ui.refresh();
-});
+
 
 for (let button of document.querySelectorAll('button')) {
     button.addEventListener('click', function (e) {

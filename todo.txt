@@ -1,3 +1,5 @@
+RELEASE 28th
+finalize 25th
 
 How do I feel about being able to lose immediately?
 	I need to mitigate losing on the first try. <-!!!
@@ -18,11 +20,16 @@ Also, a mechanic where you can get more functionality. Like maybe confirming you
 gente sound doesn't really work.
 
 
-Show where the gente are when you lose.
 
 create an ability to confirm flags
 
+mark which cell you last pressed
+
+
 DONE
+
+Show where the gente are when you lose.
+
 
 change references in code from gente to gente
 
