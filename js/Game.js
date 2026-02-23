@@ -5,6 +5,7 @@ class Game {
 	flagging = false;
 	fog_visible = null;
 	input = new Input();
+	last_pressed = null;
 	loop = new Loop();
 	map = new GameMap(Config.max_x, Config.max_y);
 	player = new Player();

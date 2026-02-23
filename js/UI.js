@@ -76,6 +76,9 @@ class UI {
 					number = num_of_adjacent_ice;
 
 				}
+				if (juego.last_pressed != null && juego.last_pressed.x == x && juego.last_pressed.y == y){
+					cell_class += " pressed ";
+				}
 				txt += `<div id='cell-${x}-${y}' class='cell ${cell_class}' data-icon='${icon}' data-num='${number}'>
 				
 					</div>`

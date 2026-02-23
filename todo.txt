@@ -23,7 +23,9 @@ gente sound doesn't really work.
 
 create an ability to confirm flags
 
-mark which cell you last pressed
+
+tutorial
+
 
 
 DONE
@@ -67,3 +69,5 @@ How do I explain this game?
 	
 Is this game too derivative to Dungeon Sweeper?
     No.
+
+	mark which cell you last pressed

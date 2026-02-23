@@ -62,6 +62,8 @@
     border: 1px grey dotted;
 }
 
+
+
 .ice,
 .gente {
     animation: reveal .18s ease-out;
@@ -181,3 +183,10 @@
     background-color: #f0f0f0;
 }
 
+.pressed{
+    background: linear-gradient(
+        145deg,
+        #b7c3a2,
+        #98a884
+    );
+}

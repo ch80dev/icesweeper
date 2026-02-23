@@ -1,6 +1,6 @@
 class Input {
     click(x, y) {
-
+        juego.last_pressed  = { x: x, y: y };
         if (juego.map.at(x, y) < 0) {
             juego.chinga_la_migra(x, y);
             juego.sounds.ice.play();
