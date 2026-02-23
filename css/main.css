@@ -398,3 +398,16 @@ body {
 #win_menu button {
     margin-top: 4px;
 }
+
+.delta-pop {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity var(--fade-time, 1200ms) ease-out,
+        transform var(--fade-time, 1200ms) ease-out;
+}
+
+.delta-pop.fade-out {
+    opacity: 0;
+    transform: translateY(-12px); /* subtle upward drift */
+}

@@ -3,21 +3,25 @@ class UI {
 
 	}
 	flash(compa_delta){
-		$("#compa_delta").removeClass('hidden');
-		
+		//$("#compa_delta").removeClass('hidden');
+		let txt = "";
 		if (compa_delta > 0) {
-			$("#compa_delta").html("-" + compa_delta);
+			txt = "-" + compa_delta;
 			$("#compa_delta").removeClass("help");
 			$("#compa_delta").addClass("lost");
+			
 		} else if (compa_delta < 0) {
-			$("#compa_delta").html("+" + Math.abs(compa_delta));
+			txt = "+" + Math.abs(compa_delta);
 			$("#compa_delta").removeClass("lost");
 			$("#compa_delta").addClass("help");
 		}
-		
+		console.log(txt);
+		this.showDeltaText(document.getElementById("compa_delta"), txt, 2000);
+		/*
 		setTimeout(function(){
 			$("#compa_delta").addClass('hidden');
 		}, Config.flash_time);
+		*/
 	}
 
 	lose(){
@@ -95,6 +99,7 @@ class UI {
 		$("#compas").html(juego.compas);
 		if (juego.compas_lost != 0){
 			this.flash(juego.compas_lost);		
+			
 		}		
 		juego.compas_lost = 0;
 		$("#compas_remaining").html(Config.num_of_gente - juego.gente_found);
@@ -115,6 +120,36 @@ class UI {
 		$("#game").removeClass('hidden');
 		$(".screen").removeClass('fade-screen show-text visible');
 	}
+
+	showDeltaText(el, text, duration = 1200) {
+		// reset state if reused quickly
+		el.classList.remove("fade-out");
+		el.classList.remove("delta-pop");
+
+		// force reflow so animation can restart
+		void el.offsetWidth;
+
+		// set content
+		el.textContent = text;
+
+		// allow CSS duration control
+		el.style.setProperty("--fade-time", duration + "ms");
+
+		// show
+		el.classList.add("delta-pop");
+
+		// start fade slightly after appearing
+		setTimeout(() => {
+			el.classList.add("fade-out");
+		}, 20);
+
+		// cleanup after animation finishes
+		setTimeout(() => {
+			el.textContent = "";
+			el.classList.remove("delta-pop", "fade-out");
+		}, duration);
+	}
+
 	win(){
 		$("#game").addClass('hidden');
 		$("#victory").addClass('visible');
