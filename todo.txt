@@ -6,22 +6,13 @@ How do I feel about being able to lose immediately?
 
 I'm winning by only revealing half of the board. I don't know if that's bad or good. And in some cases, I'm losing before even doing a flag.
 
-
-
-
-
 I was thinking of changing the mechanics to where maybe the pigs only strike when you reveal an gente to make it a little bit more obvious. 
 
 I was also thinking of a mechanic where you can get points from striking back at ICE with ice cubes. 
 
 Also, a mechanic where you can get more functionality. Like maybe confirming your flags on the board. Things like to give you an advantage. ( I was thinking maybe on the board, there's one spot that gives you this extra functionality. Or maytbe it only appears if you do a false mark. [marking an gente as a pig])
 
-
-
-
-
 create an ability to confirm flags
-
 
 tutorial
 

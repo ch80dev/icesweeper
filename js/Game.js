@@ -1,4 +1,5 @@
 class Game {
+	already_won = false;
 	gente_found = 0;
 	compas = 0;
 	compas_lost = 0;
@@ -61,6 +62,7 @@ class Game {
 			this.sounds.victory.play();
 			ui.win();
 			this.wins ++;
+			this.already_won = true;
 		}
 
 	}

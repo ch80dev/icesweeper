@@ -60,7 +60,7 @@ class UI {
 				let number = "";
 				
 					
-				if (fog_here && !juego.reveal && juego.map.flag[x][y] == -1) {
+				if (juego.map.fog != false && !juego.reveal && juego.map.fog[x][y] == -1) {
 					cell_class = ' wrong ';
 				} else if (fog_here && !juego.reveal) {
 					cell_class = ' fog ';
@@ -98,8 +98,15 @@ class UI {
 		}		
 		juego.compas_lost = 0;
 		$("#compas_remaining").html(Config.num_of_gente - juego.gente_found);
-		if (juego.wins > 0){
-			$("#wins").html("Wins: " + juego.wins);
+		if (juego.already_won && $("#wins").hasClass('hidden')){
+			$("#wins").removeClass('hidden');
+			$("#win_menu").removeClass('hidden');
+		}
+		$("#wins").html("Wins: " + juego.wins);
+
+		$("#confirm").prop('disabled', false);
+		if (juego.wins < 1){
+			$("#confirm").prop('disabled', true);
 		}
 		this.display_map();
 	}	

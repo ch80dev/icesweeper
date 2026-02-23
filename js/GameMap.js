@@ -13,14 +13,18 @@ class GameMap {
     }
 
     confirm(){
+        if (juego.wins < 1){
+            return;
+        }
+        juego.wins --;
+        console.log(juego.wins);
         for (let x = 0; x < Config.max_x; x ++){
             for (let y = 0; y < Config.max_y; y ++){
                 if (this.flag[x][y] == false){
                     continue;
                 }
-                console.log(x, y, this.flag[x][y], this.at(x, y));
                 if (Number(this.flag[x][y]) != Math.abs(this.at(x, y))){
-                    this.flag[x][y] = -1;
+                    this.fog[x][y] = -1;
                 }
             }
         }
