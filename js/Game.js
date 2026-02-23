@@ -1,5 +1,5 @@
 class Game {
-	aliens_found = 0;
+	gente_found = 0;
 	compas = 0;
 	compas_lost = 0;
 	flagging = false;
@@ -10,7 +10,7 @@ class Game {
 	reveal_off = false;
 	sounds  = 
 	{
-		alien: [],
+		gente: [],
 		defeat: new Audio("audio/defeat.mp3"),
 		ice: new Audio("audio/ice.wav"),
 		reveal: [],
@@ -23,7 +23,7 @@ class Game {
 		// pass a function reference to setInterval instead of invoking immediately
 		setInterval(() => this.loop.go(), Config.loop_interval_timing);
 		for (let i = 1; i <= 4; i ++){
-			this.sounds.alien[i] = new Audio(`audio/alien-${i}.mp3`);
+			this.sounds.gente[i] = new Audio(`audio/gente-${i}.mp3`);
 			this.sounds.reveal[i] = new Audio(`audio/reveal-${i}.mp3`);
 		}
 
@@ -48,11 +48,11 @@ class Game {
 			return;
 		}
 		this.compas_lost -= this.map.at(x, y);
-		this.aliens_found++;
+		this.gente_found++;
 		this.compas += this.map.at(x, y);
 		this.map.is(x, y, null);
 
-		if (this.aliens_found >= Config.num_of_aliens) {
+		if (this.gente_found >= Config.num_of_gente) {
 			this.sounds.victory.play();
 			ui.win();
 			this.wins ++;
@@ -71,7 +71,7 @@ class Game {
 	restart(player_loses){
 		
 		this.map.restart(Config.max_x, Config.max_y);
-		this.aliens_found = 0;
+		this.gente_found = 0;
 		this.compas = 0;
 		this.compas_lost = 0;
 		this.wins = 0;

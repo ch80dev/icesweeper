@@ -68,10 +68,10 @@ class GameMap {
         return Math.sqrt(Math.pow(from_x - to_x, 2) + Math.pow(from_y - to_y, 2))
     }
 
-    fetch_num_of_adjacent(start_x, start_y, alien_search) {
+    fetch_num_of_adjacent(start_x, start_y, gente_search) {
         let n = 0;
         let value = -1;
-        if (alien_search) {
+        if (gente_search) {
             value = 1;
         }
         for (let x = start_x - 1; x <= start_x + 1; x++) {
@@ -87,14 +87,14 @@ class GameMap {
         return n;
     }
 
-    fetch_power_of_adjacent(start_x, start_y, alien_search) {
+    fetch_power_of_adjacent(start_x, start_y, gente_search) {
         let n = 0;
         for (let x = start_x - 1; x <= start_x + 1; x++) {
             for (let y = start_y - 1; y <= start_y + 1; y++) {
                 if (!this.is_valid(x, y) || (x == start_x && y == start_y)) {
                     continue;
                 }
-                if ((alien_search && this.at(x, y) > 0) || (!alien_search && this.at(x, y) < 0)) {
+                if ((gente_search && this.at(x, y) > 0) || (!gente_search && this.at(x, y) < 0)) {
                     n += this.at(x, y);
                 }
             }
@@ -155,8 +155,8 @@ class GameMap {
     }
 
     generate() {
-        let aliens_generated = 0;
-        while(aliens_generated < Config.num_of_aliens){
+        let gente_generated = 0;
+        while(gente_generated < Config.num_of_gente){
             let power = 1;
             let spot = this.fetch_rand_open_spot();
             let num_of_adjacent = this.fetch_num_of_adjacent(spot.x, spot.y, true);
@@ -168,14 +168,14 @@ class GameMap {
             if (num_of_adjacent == 0){
                 this.is(spot.x, spot.y, power);
                 this.gente_flags[spot.x][spot.y] = gente_flag;
-                aliens_generated++;
+                gente_generated++;
                 
             }
             
         }
         
         for (let i = 0; i < Config.num_of_ice; i++) {
-            let rand = rand_num(1, Math.floor(Config.ice_power / Config.num_of_ice * 2.5)); //could end up 0 hypothetically (like aliens)
+            let rand = rand_num(1, Math.floor(Config.ice_power / Config.num_of_ice * 2.5)); //could end up 0 hypothetically (like gente)
             
             let spot = this.fetch_rand_open_spot();
             this.is(spot.x, spot.y, -rand);

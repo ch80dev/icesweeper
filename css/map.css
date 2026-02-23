@@ -60,7 +60,7 @@
 }
 
 .ice,
-.alien {
+.gente {
     animation: reveal .18s ease-out;
 }
 
@@ -95,11 +95,11 @@
     pointer-events: none;
 }
 
-.cell.ice::after, .cell.alien::after {
+.cell.ice::after, .cell.gente::after {
     color: black;
 }
 
-.cell:not(.ice):not(.alien)::after {
+.cell:not(.ice):not(.gente)::after {
     color: blue;
 }
 .cell::after {
@@ -126,7 +126,7 @@
 }
 
 .fog,
-.alien {
+.gente {
     cursor: pointer;
 }
 
@@ -134,7 +134,7 @@
     clear: both;
 }
 
-.alien {}
+.gente {}
 
 .fog {
     color: blue;

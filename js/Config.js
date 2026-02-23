@@ -1,5 +1,5 @@
 class Config {
-	static alien_power = 15;
+	static gente_power = 15;
 	static default_fog = true;
 	static flags = [' ', '1', '2', '3', '4',];
 	static gente_flags = ["🇲🇽", "🇸🇻", "🇬🇹", "🇭🇳", "🇻🇪", "🇨🇴"];
@@ -11,5 +11,5 @@ class Config {
 	static max_y = 10;
 
 	static num_of_ice = 45; //50 is difficult, 45 is consistently beatable for me. This means that is probably difficult for regular
-	static num_of_aliens = 10;
+	static num_of_gente = 10;
 }

@@ -55,7 +55,7 @@ class UI {
 				let cell_class = "";
 				let icon = "";
 				let fog_here = juego.map.is_fog_here(x, y);
-				let num_of_adjacent_aliens = juego.map.fetch_num_of_adjacent(x, y, true);
+				let num_of_adjacent_gente = juego.map.fetch_num_of_adjacent(x, y, true);
 				let num_of_adjacent_ice = juego.map.fetch_power_of_adjacent(x, y, false);
 				let number = "";
 				if (fog_here || juego.reveal_off) {
@@ -64,7 +64,7 @@ class UI {
 					cell_class = " ice ";
 					icon = "🐖";
 				} else if (juego.map.at(x, y) > 0) {
-					cell_class = " alien ";
+					cell_class = " gente ";
 				}
 				if (juego.map.fog[x][y] && juego.map.flag[x][y]) {
 					number = juego.map.flag[x][y];
@@ -73,8 +73,8 @@ class UI {
 					number = juego.map.at(x, y);
 				} else if ((!fog_here && num_of_adjacent_ice > 0) && juego.map.at(x, y) >= 0) {
 					number = num_of_adjacent_ice;
-				} else if ((!fog_here && num_of_adjacent_ice > 0 && num_of_adjacent_aliens > 0)) {
-					//cell_txt = num_of_adjacent_ice - num_of_adjacent_aliens;
+				} else if ((!fog_here && num_of_adjacent_ice > 0 && num_of_adjacent_gente > 0)) {
+					//cell_txt = num_of_adjacent_ice - num_of_adjacent_gente;
 					//cell_class = ' both ';
 				}
 
@@ -96,7 +96,7 @@ class UI {
 		}
 		
 		juego.compas_lost = 0;
-		$("#compas_remaining").html(Config.num_of_aliens - juego.aliens_found);
+		$("#compas_remaining").html(Config.num_of_gente - juego.gente_found);
 		if (juego.wins > 0){
 			$("#wins").html("Wins: " + juego.wins);
 		}

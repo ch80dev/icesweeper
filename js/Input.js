@@ -15,7 +15,7 @@ class Input {
         }
 
         if (juego.map.at(x, y) > 0) {
-            juego.sounds.alien[rand_num(1, 4)].play();
+            juego.sounds.gente[rand_num(1, 4)].play();
             juego.help(x, y);
             return;
         }
