@@ -59,6 +59,12 @@ class Game {
 		this.map.is(x, y, null);
 
 		if (this.gente_found >= Config.num_of_gente) {
+			for (let i = 1; i <= 2; i ++){
+                if(juego.sounds.gente[i]){
+                    juego.sounds.gente[i].pause();
+                    juego.sounds.gente[i].currentTime = 0;
+                }
+            }
 			this.sounds.victory.play();
 			ui.win();
 			this.wins ++;

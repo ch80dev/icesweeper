@@ -1,0 +1,69 @@
+DONE
+CANCEL - change the text color of .pressed so that it's more obvious that it's not a fog. Or change bg color
+
+change fog flag text color to something that's not cell text color
+
+double the flash time for compa_delta
+
+
+Also, a mechanic where you can get more functionality. Like maybe confirming your flags on the board. Things like to give you an advantage. ( I was thinking maybe on the board, there's one spot that gives you this extra functionality. Or maytbe it only appears if you do a false mark. [marking an gente as a pig])
+
+create an ability to confirm flags
+gente sound doesn't really work.
+
+
+Show where the gente are when you lose.
+
+
+change references in code from gente to gente
+
+
+50% of the flags should be Mexican. The remaining 50% will be equally distributed equally between El Salvador, Guatemala, Honduras, Venezual, & Colombia.
+
+Create a legitimate victory screen.
+
+Add sound.
+
+
+Be able to unmark the fog of war.
+
+Don't have gente spawn immediately next to each other.
+
+
+I should only be able ot pull up the marking  menu for fog of war.
+
+Remaining what? 
+    Gente
+
+How do I market this? 
+
+    ICE Sweeper: Poder Al Pueblo
+    A community-action reinterpretation of Minesweeper focused on risk management, survival, and rescue rather than perfect completion.
+
+How do I explain this game?
+	Rescue 15 people (Gente) before your resolve runs out.
+	Rescued people restore resolve (Poder) and reduce the remaining count.
+	ICE agents damage your resolve, but the game continues. (As does the struggle.) Avoid unnecessary risks.
+	Right-click to mark what you think is hidden here.
+		Marking tiles helps you track deductions. It does not reveal them.
+	Numbers show the TOTAL threat value nearby — not the number of agents.
+	You don’t need to clear the board — rescue enough to win.
+	
+Is this game too derivative to Dungeon Sweeper?
+    No.
+
+	mark which cell you last pressed
+
+
+
+26-02-24
+
+How do I feel about being able to lose immediately?
+	I need to mitigate losing on the first try. <-!!!
+		I don't know if this is really that big of an issue. I think that's an inherent part of Minesweeper as a game.
+
+I'm winning by only revealing half of the board. I don't know if that's bad or good. And in some cases, I'm losing before even doing a flag.
+	I think I've resolved that issue with winning because it feels more substantial now. 
+
+Started where there was no easy in. (Should have taken a picture. Maybe always start with flags.)
+    resolved - basic part of the design
