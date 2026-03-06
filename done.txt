@@ -57,6 +57,7 @@ Is this game too derivative to Dungeon Sweeper?
 
 
 26-02-24
+lets not play alien sound when you win. because of win sound is playing.
 
 How do I feel about being able to lose immediately?
 	I need to mitigate losing on the first try. <-!!!
