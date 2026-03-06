@@ -10,7 +10,10 @@ class Input {
 
             juego.sounds.reveal[rand_num(1, 3)].play();
             juego.map.fog[x][y] = false;
-            juego.map.reveal(x, y);
+            // Only flood-fill reveal empty cells (null). Numbers should only uncover themselves.
+            if (juego.map.at(x, y) === null) {
+                juego.map.reveal(x, y);
+            }
             return;
         }
 

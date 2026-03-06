@@ -78,3 +78,5 @@ BUG - wins didn't go up when I won
 
 26-03-06
 alien sound to ostrong
+
+BUG - when you click on a cell, sometimes it reveals a section that's not even conntcted to it
