@@ -6,8 +6,14 @@
 }
 #compa_delta {
     margin-left: 10px;
+    
 }
 
+
+#credit {
+    font-size:15px;
+    margin-top: 30px;
+}
 
 .help{
     color: green;
