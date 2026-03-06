@@ -14,14 +14,12 @@ class Input {
             return;
         }
 
-        if (juego.map.at(x, y) > 0) {
-            for (let i = 1; i <= 2; i ++){
-                if(juego.sounds.gente[i]){
-                    juego.sounds.gente[i].pause();
-                    juego.sounds.gente[i].currentTime = 0;
-                }
-            }
-            juego.sounds.gente[rand_num(1, 2)].play();
+        if (juego.map.at(x, y) > 0) {            
+            if(juego.sounds.gente){
+				juego.sounds.gente.pause();
+				juego.sounds.gente.currentTime = 0;
+			}
+            juego.sounds.gente.play();
             juego.help(x, y);
             return;
         }

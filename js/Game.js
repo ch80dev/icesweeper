@@ -13,7 +13,7 @@ class Game {
 	reveal = false;
 	sounds  = 
 	{
-		gente: [],
+		gente: new Audio(`audio/gente.mp3`),
 		defeat: new Audio("audio/defeat.mp3"),
 		ice: new Audio("audio/ice.wav"),
 		reveal: [],
@@ -24,6 +24,7 @@ class Game {
 	
 	constructor() {
 		setInterval(() => this.loop.go(), Config.loop_interval_timing);
+		this.sounds.gente.volume = .5;
 		for (let i = 1; i <= 4; i ++){
 			
 			this.sounds.reveal[i] = new Audio(`audio/reveal-${i}.mp3`);
@@ -31,8 +32,6 @@ class Game {
 			if (i > 2){
 				continue;
 			}
-			this.sounds.gente[i] = new Audio(`audio/alien-${i}.mp3`);
-			this.sounds.gente[i].volume = .1;
 		}		
 	}
 	chinga_la_migra(x, y) {
@@ -59,16 +58,17 @@ class Game {
 		this.map.is(x, y, null);
 
 		if (this.gente_found >= Config.num_of_gente) {
-			for (let i = 1; i <= 2; i ++){
-                if(juego.sounds.gente[i]){
-                    juego.sounds.gente[i].pause();
-                    juego.sounds.gente[i].currentTime = 0;
-                }
-            }
+			
+			if(juego.sounds.gente){
+				juego.sounds.gente.pause();
+				juego.sounds.gente.currentTime = 0;
+			}
 			this.sounds.victory.play();
-			ui.win();
 			this.wins ++;
+			console.log(this.wins);
 			this.already_won = true;
+			ui.win();
+
 		}
 
 	}
@@ -87,8 +87,8 @@ class Game {
 		this.gente_found = 0;
 		this.compas = 0;
 		this.compas_lost = 0;
-		this.wins = 0;
 		if(player_loses){
+			this.wins = 0;
 			this.reveal = false;
 		}
 		ui.restart();

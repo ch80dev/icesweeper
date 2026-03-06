@@ -57,6 +57,7 @@ Is this game too derivative to Dungeon Sweeper?
 
 
 26-02-24
+
 lets not play alien sound when you win. because of win sound is playing.
 
 How do I feel about being able to lose immediately?
@@ -68,3 +69,12 @@ I'm winning by only revealing half of the board. I don't know if that's bad or g
 
 Started where there was no easy in. (Should have taken a picture. Maybe always start with flags.)
     resolved - basic part of the design
+
+set Gente 10 - how did this affect gameplay? makes it more difficult
+
+
+26-02-25
+BUG - wins didn't go up when I won
+
+26-03-06
+alien sound to ostrong

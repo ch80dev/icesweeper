@@ -19,13 +19,12 @@ tutorial
 
 
 
-alien sound to ostrong
 
 
-BUG - wins didn't go up when I won
 
-set Gente 10
 
 BUG - when you click on a cell, sometimes it reveals a section that's not even conntcted to it
+
+When you lose, your flags should show be removed and the power behind the ice should show.
 
 
