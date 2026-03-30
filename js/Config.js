@@ -10,7 +10,7 @@ class Config {
 	static max_x = 8;
 	static max_y = 10;
 
-	static num_of_ice = 35; 
+	static num_of_ice = 37; 
 	static num_of_gente = 10;
 	static ice_no_adjacent = true;
 	static ice_spawn_max_tries = 2000;
