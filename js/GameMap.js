@@ -31,8 +31,9 @@ class GameMap {
     }
 
     create_start() {
-        let max_open_spaces = 0;
+        let min_open_spaces = null;
         let border = null;
+        let border_open_spots = null;
         let border_x = [0, Config.max_x - 1];
         let border_y = [0, Config.max_y - 1];
         for (let x of border_x) {
@@ -41,9 +42,10 @@ class GameMap {
                     continue;
                 }
                 let open_spots = this.fetch_all_open_spots(x, y);
-                if (open_spots.length > max_open_spaces) {
+                if (min_open_spaces === null || open_spots.length < min_open_spaces) {
                     border = { x: x, y: y };
-                    max_open_spaces = open_spots.length;
+                    min_open_spaces = open_spots.length;
+                    border_open_spots = open_spots;
                 }
             }
         }
@@ -53,15 +55,48 @@ class GameMap {
                     continue;
                 }
                 let open_spots = this.fetch_all_open_spots(x, y);
-                if (open_spots.length > max_open_spaces) {
+                if (min_open_spaces === null || open_spots.length < min_open_spaces) {
                     border = { x: x, y: y };
-                    max_open_spaces = open_spots.length;
+                    min_open_spaces = open_spots.length;
+                    border_open_spots = open_spots;
                 }
             }
         }
-        this.reveal(border.x, border.y);
-
-        this.reveal_neighbors(border.x, border.y);
+        if (border == null) {
+            return;
+        }
+        let open_spots = border_open_spots;
+        let limit = Config.start_reveal_limit;
+        if (limit != null && open_spots.length > limit) {
+            let picked = [{ x: border.x, y: border.y }];
+            let remaining = open_spots.filter(
+                (spot) => !(spot.x == border.x && spot.y == border.y)
+            );
+            for (let i = remaining.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
+            }
+            for (let i = 0; i < limit - 1 && i < remaining.length; i++) {
+                picked.push(remaining[i]);
+            }
+            open_spots = picked;
+        }
+        for (let spot of open_spots) {
+            this.fog[spot.x][spot.y] = false;
+        }
+        for (let spot of open_spots) {
+            let neighbors = [
+                { x: spot.x + 1, y: spot.y },
+                { x: spot.x - 1, y: spot.y },
+                { x: spot.x, y: spot.y + 1 },
+                { x: spot.x, y: spot.y - 1 }
+            ];
+            for (let n of neighbors) {
+                if (this.is_valid(n.x, n.y) && this.at(n.x, n.y) > 0) {
+                    this.fog[n.x][n.y] = false;
+                }
+            }
+        }
     }
 
     reveal_neighbors(x, y) {
