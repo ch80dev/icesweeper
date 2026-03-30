@@ -10,9 +10,10 @@ class Config {
 	static max_x = 8;
 	static max_y = 10;
 
-	static num_of_ice = 50; 
+	static num_of_ice = 40; 
 	static num_of_gente = 10;
-	static start_reveal_limit = 12;
+	static ice_no_adjacent = true;
+	static ice_spawn_max_tries = 2000;
 
 	static tooltips = [
 		"Rescue 10 people (Gente/🇲🇽/🇭🇳) before your resolve runs out.",

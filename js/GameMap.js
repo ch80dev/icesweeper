@@ -31,9 +31,8 @@ class GameMap {
     }
 
     create_start() {
-        let min_open_spaces = null;
+        let max_open_spaces = 0;
         let border = null;
-        let border_open_spots = null;
         let border_x = [0, Config.max_x - 1];
         let border_y = [0, Config.max_y - 1];
         for (let x of border_x) {
@@ -42,10 +41,9 @@ class GameMap {
                     continue;
                 }
                 let open_spots = this.fetch_all_open_spots(x, y);
-                if (min_open_spaces === null || open_spots.length < min_open_spaces) {
+                if (open_spots.length > max_open_spaces) {
                     border = { x: x, y: y };
-                    min_open_spaces = open_spots.length;
-                    border_open_spots = open_spots;
+                    max_open_spaces = open_spots.length;
                 }
             }
         }
@@ -55,48 +53,15 @@ class GameMap {
                     continue;
                 }
                 let open_spots = this.fetch_all_open_spots(x, y);
-                if (min_open_spaces === null || open_spots.length < min_open_spaces) {
+                if (open_spots.length > max_open_spaces) {
                     border = { x: x, y: y };
-                    min_open_spaces = open_spots.length;
-                    border_open_spots = open_spots;
+                    max_open_spaces = open_spots.length;
                 }
             }
         }
-        if (border == null) {
-            return;
-        }
-        let open_spots = border_open_spots;
-        let limit = Config.start_reveal_limit;
-        if (limit != null && open_spots.length > limit) {
-            let picked = [{ x: border.x, y: border.y }];
-            let remaining = open_spots.filter(
-                (spot) => !(spot.x == border.x && spot.y == border.y)
-            );
-            for (let i = remaining.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
-            }
-            for (let i = 0; i < limit - 1 && i < remaining.length; i++) {
-                picked.push(remaining[i]);
-            }
-            open_spots = picked;
-        }
-        for (let spot of open_spots) {
-            this.fog[spot.x][spot.y] = false;
-        }
-        for (let spot of open_spots) {
-            let neighbors = [
-                { x: spot.x + 1, y: spot.y },
-                { x: spot.x - 1, y: spot.y },
-                { x: spot.x, y: spot.y + 1 },
-                { x: spot.x, y: spot.y - 1 }
-            ];
-            for (let n of neighbors) {
-                if (this.is_valid(n.x, n.y) && this.at(n.x, n.y) > 0) {
-                    this.fog[n.x][n.y] = false;
-                }
-            }
-        }
+        this.reveal(border.x, border.y);
+
+        this.reveal_neighbors(border.x, border.y);
     }
 
     reveal_neighbors(x, y) {
@@ -153,6 +118,20 @@ class GameMap {
             }
         }
         return Math.abs(n);
+    }
+
+    has_adjacent_ice(start_x, start_y) {
+        for (let x = start_x - 1; x <= start_x + 1; x++) {
+            for (let y = start_y - 1; y <= start_y + 1; y++) {
+                if (!this.is_valid(x, y) || (x == start_x && y == start_y)) {
+                    continue;
+                }
+                if (this.at(x, y) < 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     fetch_all_open_spots(x, y, open_spots) {
@@ -227,12 +206,30 @@ class GameMap {
             
         }
         
-        for (let i = 0; i < Config.num_of_ice; i++) {
+        let ice_generated = 0;
+        let tries = 0;
+        while (ice_generated < Config.num_of_ice && tries < Config.ice_spawn_max_tries) {
             let rand = rand_num(1, Math.floor(Config.ice_power / Config.num_of_ice * 2.5)); //could end up 0 hypothetically (like gente)
-            
             let spot = this.fetch_rand_open_spot();
+            if (Config.ice_no_adjacent && this.has_adjacent_ice(spot.x, spot.y)) {
+                tries++;
+                continue;
+            }
             this.is(spot.x, spot.y, -rand);
+            ice_generated++;
+            tries++;
         }
+        if (ice_generated < Config.num_of_ice) {
+            let safety = 0;
+            while (ice_generated < Config.num_of_ice && safety < Config.ice_spawn_max_tries) {
+                let rand = rand_num(1, Math.floor(Config.ice_power / Config.num_of_ice * 2.5));
+                let spot = this.fetch_rand_open_spot();
+                this.is(spot.x, spot.y, -rand);
+                ice_generated++;
+                safety++;
+            }
+        }
+        console.log(`ICE generated: ${ice_generated}/${Config.num_of_ice}`);
 
         
     }
