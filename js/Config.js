@@ -7,7 +7,7 @@ class Config {
 	static ice_power = 60;
 
 	static loop_interval_timing = 1000;
-	static max_x = 10;
+	static max_x = 8;
 	static max_y = 10;
 
 	static num_of_ice = 45; //50 is difficult, 45 is consistently beatable for me. This means that is probably difficult for regular
