@@ -31,6 +31,11 @@ class UI {
 	}
 
 	display_map() {
+		const mapEl = document.getElementById('map');
+		if (mapEl) {
+			mapEl.style.setProperty('--cols', Config.max_x);
+			mapEl.style.setProperty('--rows', Config.max_y);
+		}
 		let txt = "";
 		for (let y = 0; y < Config.max_y; y++) {
 			for (let x = 0; x < Config.max_x; x++) {
