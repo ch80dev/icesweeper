@@ -10,7 +10,7 @@ class Config {
 	static max_x = 6;
 	static max_y = 10;
 
-	static num_of_ice = 22; //50 is difficult, 45 is consistently beatable for me. This means that is probably difficult for regular
+	static num_of_ice = 25; 
 	static num_of_gente = 7;
 
 	static tooltips = [
