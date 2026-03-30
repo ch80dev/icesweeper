@@ -6,25 +6,6 @@ I was thinking of changing the mechanics to where maybe the pigs only strike whe
 
 I was also thinking of a mechanic where you can get points from striking back at ICE with ice cubes. 
 
-tutorial
-	Rescue 15 people (Gente) before your resolve runs out.
-	Rescued people restore resolve (Poder) and reduce the remaining count.
-	ICE agents damage your resolve, but the game continues. (As does the struggle.) Avoid unnecessary risks.
-	Right-click to mark what you think is hidden here.
-		Marking tiles helps you track deductions. It does not reveal them.
-	Numbers show the TOTAL threat value nearby — not the number of agents.
-	You don’t need to clear the board — rescue enough to win.
-
-
-
-
-
-
-
-
-
-
-
 When you lose, your flags should show be removed and the power behind the ice should show.
 
 

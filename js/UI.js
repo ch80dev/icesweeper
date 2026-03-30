@@ -1,46 +1,24 @@
 class UI {
+	tooltip_id = 0;
+	tooltips_new = [];
 	constructor() {
-
-	}
-	flash(compa_delta){
-		//$("#compa_delta").removeClass('hidden');
-		let txt = "";
-		if (compa_delta > 0) {
-			txt = "-" + compa_delta;
-			$("#compa_delta").removeClass("help");
-			$("#compa_delta").addClass("lost");
-			
-		} else if (compa_delta < 0) {
-			txt = "+" + Math.abs(compa_delta);
-			$("#compa_delta").removeClass("lost");
-			$("#compa_delta").addClass("help");
+		for (let id in Config.tooltips){
+			this.tooltips_new.push(true);
 		}
-		console.log(txt);
-		this.showDeltaText(document.getElementById("compa_delta"), txt, 2000);
-		/*
-		setTimeout(function(){
-			$("#compa_delta").addClass('hidden');
-		}, Config.flash_time);
-		*/
 	}
 
-	lose(){
-		//$("#game").addClass('hidden');
-		// first phase: text fades in over the game
-		$("#defeat").addClass('show-text');
+	change_tooltip(what){		
+		let delta = 0;
+		if (what == 'prev' && this.tooltip_id != 0){
+			delta = -1;
+		} else if (what == 'next' && this.tooltip_id != Config.tooltips.length - 1){
+			delta = 1;
+		}
+		this.tooltip_id += delta;		
 	}
 
-	show_context_menu(screen_x, screen_y, cell_x, cell_y) {
-		this.create_context_menu(cell_x, cell_y);
-		const menu = document.getElementById('context-menu');
-		menu.style.display = 'block';
-		menu.style.left = screen_x + 'px';
-		menu.style.top = screen_y + 'px';
-	}
-
-	hide_context_menu() {
-		const menu = document.getElementById('context-menu');
-		menu.style.display = 'none';
+	close_tooltips(){
+		$("#tooltips").addClass('hidden');
 	}
 
 	create_context_menu(x, y) {
@@ -95,6 +73,57 @@ class UI {
 		document.getElementById('map').innerHTML = txt;
 	}
 
+	flash(compa_delta){
+		//$("#compa_delta").removeClass('hidden');
+		let txt = "";
+		if (compa_delta > 0) {
+			txt = "-" + compa_delta;
+			$("#compa_delta").removeClass("help");
+			$("#compa_delta").addClass("lost");
+			
+		} else if (compa_delta < 0) {
+			txt = "+" + Math.abs(compa_delta);
+			$("#compa_delta").removeClass("lost");
+			$("#compa_delta").addClass("help");
+		}
+		console.log(txt);
+		this.showDeltaText(document.getElementById("compa_delta"), txt, 2000);
+		/*
+		setTimeout(function(){
+			$("#compa_delta").addClass('hidden');
+		}, Config.flash_time);
+		*/
+	}
+
+	lose(){
+		//$("#game").addClass('hidden');
+		// first phase: text fades in over the game
+		$("#defeat").addClass('show-text');
+	}
+	next_new_tooltip(){
+		for (let i = 0; i < this.tooltips_new.length; i ++){
+			if (this.tooltips_new[i]){
+				this.tooltip_id = i;
+				break;
+			}
+		}
+	}
+
+	show_context_menu(screen_x, screen_y, cell_x, cell_y) {
+		this.create_context_menu(cell_x, cell_y);
+		const menu = document.getElementById('context-menu');
+		menu.style.display = 'block';
+		menu.style.left = screen_x + 'px';
+		menu.style.top = screen_y + 'px';
+	}
+
+	hide_context_menu() {
+		const menu = document.getElementById('context-menu');
+		menu.style.display = 'none';
+	}
+
+	
+
 	refresh() {
 		$("#compas").html(juego.compas);
 		if (juego.compas_lost != 0){
@@ -114,6 +143,20 @@ class UI {
 			$("#confirm").prop('disabled', true);
 		}
 		this.display_map();
+
+		$("#tooltip-text").html(`${Number(this.tooltip_id) + 1}/${Config.tooltips.length} ${Config.tooltips[this.tooltip_id]} `)
+		$("#tooltip-text").removeClass('new');
+		if (this.tooltips_new[this.tooltip_id]){
+			$("#tooltip-text").addClass('new');
+			this.tooltips_new[this.tooltip_id] = false;
+		}
+		$("#prev-tooltip").prop('disabled', false);
+		$("#next-tooltip").prop('disabled', false);
+		if (this.tooltip_id == 0 ){
+			$("#prev-tooltip").prop('disabled', true);
+		} else if (this.tooltip_id == Config.tooltips.length - 1){
+			$("#next-tooltip").prop('disabled', true);
+		}
 	}	
 
 	restart(){

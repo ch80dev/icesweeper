@@ -80,3 +80,16 @@ BUG - wins didn't go up when I won
 alien sound to ostrong
 
 BUG - when you click on a cell, sometimes it reveals a section that's not even conntcted to it
+
+26-03-29
+
+tutorial - goddamn, finally!!!
+	Rescue 15 people (Gente) before your resolve runs out.
+	Numbers show the TOTAL threat value nearby — not the number of agents.
+	Rescued people restore resolve (Poder) and reduce the remaining count.
+	ICE agents damage your resolve, but the game continues. (As does the struggle.) Avoid unnecessary risks.
+	Right-click to mark what you think is hidden here.
+		Marking tiles helps you track deductions. It does not reveal them.
+	
+	You don’t need to clear the board — rescue enough to win
+	

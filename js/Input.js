@@ -1,5 +1,8 @@
 class Input {
     click(x, y) {
+        if (!juego.never_touched_ice_before && !juego.never_helped){
+            ui.next_new_tooltip();
+        }
         juego.last_pressed  = { x: x, y: y };
         if (juego.map.at(x, y) < 0) {
             juego.chinga_la_migra(x, y);
@@ -7,7 +10,9 @@ class Input {
         }
 
         if (juego.map.is_fog_here(x, y)) {
-
+            if (!juego.never_helped){
+                ui.next_new_tooltip();
+            }
             juego.sounds.reveal[rand_num(1, 3)].play();
             juego.map.fog[x][y] = false;
             // Only flood-fill reveal empty cells (null). Numbers should only uncover themselves.

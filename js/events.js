@@ -53,6 +53,14 @@ $(document).on('contextmenu', ".fog", function (e) {
 
 });
 
+$(document).on('click', '.tooltip_button', function (e) {
+    let what = this.id.split('-')[0];
+    if (what == 'close'){
+        ui.close_tooltips();
+        return;
+    }
+    ui.change_tooltip(what);
+});
 
 
 for (let button of document.querySelectorAll('button')) {

@@ -9,6 +9,8 @@ class Game {
 	last_pressed = null;
 	loop = new Loop();
 	map = new GameMap(Config.max_x, Config.max_y);
+	never_helped = true;
+	never_touched_ice_before = true;
 	player = new Player();
 	reveal = false;
 	sounds  = 
@@ -38,6 +40,10 @@ class Game {
 		if (this.map.at(x, y) > 0) {
 			return;
 		}
+		if (this.never_touched_ice_before){
+			this.never_touched_ice_before = false;
+			ui.tooltip_id = 2;
+		}
 		this.compas_lost = Math.abs(this.map.at(x, y));
 		this.compas += this.map.at(x, y);
 		this.map.is(x, y, null);
@@ -51,6 +57,10 @@ class Game {
 	help(x, y) {
 		if (this.map.at(x, y) <= 0) {
 			return;
+		}
+		if (this.never_helped){
+			this.never_helped = false;
+			ui.tooltip_id = 1;
 		}
 		this.compas_lost -= this.map.at(x, y);
 		this.gente_found++;
