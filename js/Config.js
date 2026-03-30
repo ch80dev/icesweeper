@@ -10,11 +10,11 @@ class Config {
 	static max_x = 8;
 	static max_y = 10;
 
-	static num_of_ice = 30; 
-	static num_of_gente = 7;
+	static num_of_ice = 35; 
+	static num_of_gente = 10;
 
 	static tooltips = [
-		"Rescue 15 people (Gente/🇲🇽/🇭🇳) before your resolve runs out.",
+		"Rescue 10 people (Gente/🇲🇽/🇭🇳) before your resolve runs out.",
 		"Rescued people restore resolve (Poder).",
 		"Numbers show the TOTAL threat value nearby — not the number of agents.",
 		"ICE agents damage your resolve, but the struggle continues.",
