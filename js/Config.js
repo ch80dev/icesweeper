@@ -7,7 +7,7 @@ class Config {
 	static ice_power = 30;
 
 	static loop_interval_timing = 1000;
-	static max_x = 6;
+	static max_x = 8;
 	static max_y = 10;
 
 	static num_of_ice = 25; 
