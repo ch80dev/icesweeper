@@ -4,13 +4,13 @@ class Config {
 	static flags = [' ', '1', '2', '3', '4',];
 	static gente_flags = ["🇲🇽", "🇸🇻", "🇬🇹", "🇭🇳", "🇻🇪", "🇨🇴"];
 	static flash_time = 1000;
-	static ice_power = 30;
+	static ice_power = 60;
 
 	static loop_interval_timing = 1000;
 	static max_x = 8;
 	static max_y = 10;
 
-	static num_of_ice = 25; 
+	static num_of_ice = 30; 
 	static num_of_gente = 7;
 
 	static tooltips = [
