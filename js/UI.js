@@ -63,10 +63,15 @@ class UI {
 				} else if ((!fog_here || fog_here && juego.reveal) && juego.map.at(x, y) > 0) {
 					icon = juego.map.gente_flags[x][y];
 					number = juego.map.at(x, y);
-				} else if ((!fog_here && num_of_adjacent_ice > 0) && juego.map.at(x, y) >= 0) {
+				} else if ((!fog_here && num_of_adjacent_ice >= 0) && juego.map.at(x, y) >= 0) {
 					number = num_of_adjacent_ice;
-
+					if (num_of_adjacent_ice == 0){
+						cell_class += " empty_ice ";
+					}
 				}
+
+				
+
 				if (juego.last_pressed != null && juego.last_pressed.x == x && juego.last_pressed.y == y){
 					cell_class += " pressed ";
 				}

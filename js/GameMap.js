@@ -209,7 +209,7 @@ class GameMap {
         let ice_generated = 0;
         let tries = 0;
         while (ice_generated < Config.num_of_ice && tries < Config.ice_spawn_max_tries) {
-            let rand = rand_num(1, Math.floor(Config.ice_power / Config.num_of_ice * 2.5)); //could end up 0 hypothetically (like gente)
+            let rand = rand_num(1, 4); //could end up 0 hypothetically (like gente)
             let spot = this.fetch_rand_open_spot();
             if (Config.ice_no_adjacent && this.has_adjacent_ice(spot.x, spot.y)) {
                 tries++;
