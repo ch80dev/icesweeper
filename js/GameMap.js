@@ -222,7 +222,7 @@ class GameMap {
         if (ice_generated < Config.num_of_ice) {
             let safety = 0;
             while (ice_generated < Config.num_of_ice && safety < Config.ice_spawn_max_tries) {
-                let rand = rand_num(1, Math.floor(Config.ice_power / Config.num_of_ice * 2.5));
+                let rand = rand_num(1, 4);
                 let spot = this.fetch_rand_open_spot();
                 this.is(spot.x, spot.y, -rand);
                 ice_generated++;
